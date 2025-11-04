@@ -1,0 +1,70 @@
+<div
+  class="upload-container"
+  (dragover)="onDragOver($event)"
+  (drop)="onDrop($event)"
+>
+  <!-- Show default UI if no image is uploaded -->
+  <ng-container *ngIf="!previewImage && !uploadSuccess">
+    <img
+      src="https://tse1.mm.bing.net/th?id=OIP.aUkEwJns0WUzDZyshsq4FAHaFH&pid=Api&P=0&h=180"
+      alt="Upload Icon"
+      class="upload-icon"
+    />
+    <p>Drag & Drop Image Here or Click to Select</p>
+  </ng-container>
+
+  <!-- Display Predicted Animal Name -->
+  <div *ngIf="predictedAnimal" class="prediction-result">
+    <p><strong>Predicted Animal:</strong> {{ predictedAnimal }}</p>
+  </div>
+
+  <!-- Show preview of the selected image -->
+  <div *ngIf="previewImage" class="preview-container">
+    <button
+      class="remove-image"
+      *ngIf="!uploadSuccess"
+      (click)="removeSelectedImage()"
+    >
+      ✖
+    </button>
+    <img [src]="previewImage" alt="Selected Image" />
+  </div>
+
+  <!-- Upload success message -->
+  <div *ngIf="uploadSuccess" class="success">
+    <p>Image uploaded successfully!</p>
+  </div>
+
+  <input
+    type="file"
+    hidden
+    #fileInput
+    (change)="onFileSelected($event)"
+    accept="image/*"
+  />
+  <br>
+  <button *ngIf="!uploadSuccess" (click)="fileInput.click()" class="btn">
+    Select Image
+  </button>
+
+  <button
+    *ngIf="selectedFile && !isUploading && !uploadSuccess"
+    (click)="uploadFile()"
+    class="btn"
+  >
+    Upload
+  </button>
+
+  <!-- Progress Bar -->
+  <div *ngIf="isUploading" class="progress-container">
+    <div class="progress-bar"></div>
+    <p class="loading">Uploading...</p>
+  </div>
+
+  <!-- Upload Another Button (inside the same container) -->
+  <div *ngIf="uploadSuccess">
+    <button (click)="uploadAnother()" class="btn secondary">
+      Upload Another
+    </button>
+  </div>
+</div>

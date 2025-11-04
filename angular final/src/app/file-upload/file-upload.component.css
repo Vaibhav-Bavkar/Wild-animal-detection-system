@@ -1,0 +1,119 @@
+
+
+.upload-container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  padding: 50px;
+  border: 2px dashed #4CAF50;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #f9f9f9;
+  transition: all 0.3s;
+  position: relative;
+  min-height: 550px; /* Increased size */
+}
+
+.upload-container:hover {
+  background: #eef6ee;
+}
+
+/* Preview Image */
+.preview-container {
+  position: relative;
+  display: inline-block;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 500px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* Close Icon */
+.remove-image {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-image:hover {
+  background: darkred;
+}
+
+/* Upload Icon */
+.upload-icon {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  background: #4CAF50;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+.btn.secondary {
+  background: #ff5722;
+}
+
+.btn.secondary:hover {
+  background: #e64a19;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  animation: loading 1.5s infinite linear;
+}
+
+@keyframes loading {
+  0% { width: 0%; }
+  50% { width: 50%; }
+  100% { width: 100%; }
+}
+
+.loading {
+  font-weight: bold;
+  color: blue;
+}
+
+.success {
+  font-weight: bold;
+  color: green;
+  margin-top: 10px;
+}
