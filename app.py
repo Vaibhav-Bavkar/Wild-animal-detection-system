@@ -83,7 +83,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the trained model
-model = keras.models.load_model("animal_model.h5")
+model = keras.models.load_model("animal_model.keras",compile=False)
 
 # Define image size (MUST be defined before use)
 IMG_SIZE = (224, 224)  # Ensure this matches your model's expected input size
@@ -104,7 +104,7 @@ def preprocess_image(image_path):
 
 
 @app.route('/predict', methods=['POST'])
-async def predict_animal():
+def predict_animal():
     if 'image' not in request.files:
         return jsonify({"error": "No image file found"}), 400
 

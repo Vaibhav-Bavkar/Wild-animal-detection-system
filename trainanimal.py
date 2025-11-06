@@ -44,13 +44,15 @@ model = keras.Sequential([
 ])
 
 # Compile the model
-model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.0001), 
-              loss="sparse_categorical_crossentropy", 
+model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.0001),
+              loss="sparse_categorical_crossentropy",
               metrics=["accuracy"])
 
 # Train the model
 model.fit(train_ds, epochs=EPOCHS)
 
 # Save model
-model.save("animal_model.h5")
-print("Model trained and saved as animal_model.h5")
+model.save("animal_model.keras")
+print("Model trained and saved as animal_model.keras")
+
+
